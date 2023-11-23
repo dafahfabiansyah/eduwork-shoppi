@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import Icon from '../img/icon.png';
 import { AiOutlineLogin } from 'react-icons/ai';
 import AuthContext from '../contexts/AuthContext';
-import { FaRegUserCircle } from 'react-icons/fa';
 
 const Header = () => {
   const [isActive, setIsActive] = useState(true);

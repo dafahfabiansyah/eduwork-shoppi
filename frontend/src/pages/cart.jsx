@@ -32,7 +32,7 @@ const CartPage = () => {
               <div className="uppercase font-semibold">
                 <span className="mr-2">Total : </span> Rp {parseFloat(total).toFixed(0)}{' '}
               </div>
-              <div onClick={clearUserCart} className="cursor-pointer hover:bg-red-800 transition duration-300 py-4 bg-red-500 text-white w-12 h-12 flex justify-center items-center text-xl">
+              <div onClick={clearUserCart} className="cursor-pointer rounded-lg hover:bg-red-800 transition duration-300 py-4 bg-red-500 text-white w-12 h-12 flex justify-center items-center text-xl">
                 <FiTrash2 />{' '}
               </div>
             </div>

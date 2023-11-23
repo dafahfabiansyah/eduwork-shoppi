@@ -68,6 +68,9 @@ const ProfilePage = () => {
                         <th scope="col" className="px-6 py-3">
                           Total Price
                         </th>
+                        <th scope="col" className="px-6 py-3">
+                          Status
+                        </th>
                       </tr>
                     </thead>
                     <tbody>
@@ -76,18 +79,19 @@ const ProfilePage = () => {
                           <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">{item.name}</td>
                           <td className="px-6 py-4">{item.amount}</td>
                           <td className="px-6 py-4">Rp. {item.price * item.amount}</td>
+                          <td className="px-6 py-4">waiting payment</td>
                         </tr>
                       ))}
                     </tbody>
                   </table>
                 </div>
               )}
-              {cart.length > 0 && (
+              {/* {cart.length > 0 && (
                 <>
                   <p className="mt-3">Total Spent: Rp. {total}</p>
                   <p className="mt-3">status: waiting payment</p>
                 </>
-              )}
+              )} */}
               <div className="mt-3 flex justify-between">
                 <Link to="/invoice">
                   <button className="mt-3 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-700">Go to Invoice</button>

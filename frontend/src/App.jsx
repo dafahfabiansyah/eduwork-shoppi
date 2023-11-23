@@ -17,7 +17,6 @@ import DeleteAddress from './pages/address/deleteAddress';
 import EditAdress from './pages/address/EditAdress';
 
 const App = () => {
-  // errorElement={<ErrorPage />}
   return (
     <div className="overflow-hidden">
       <Router>
