@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { getCamilanCategory, getDetailProduct, getDrinkCategory, getFoodCategory, getProducts, getIndomieTag, getSweetTag, getChocolateTag } from '../service/productservice';
+import { getCamilanCategory, getDetailProduct, getDrinkCategory, getFoodCategory, getProducts, getClothesCategory, getElectronicCategory, getIndomieTag, getSweetTag, getChocolateTag, getStyleTag } from '../service/productservice';
 import { useParams } from 'react-router-dom';
 
 export const ProductContext = createContext();
@@ -21,6 +21,7 @@ const ProductProvider = ({ children }) => {
     }
   }, [_id]);
 
+  // category
   const [drink, setDrink] = useState([]);
   useEffect(() => {
     getDrinkCategory((data) => {
@@ -33,12 +34,26 @@ const ProductProvider = ({ children }) => {
       setFood(data);
     });
   }, []);
+  const [clothes, setClothes] = useState([]);
+  useEffect(() => {
+    getClothesCategory((data) => {
+      setClothes(data);
+    });
+  }, []);
+  const [electronic, setElectronic] = useState([]);
+  useEffect(() => {
+    getElectronicCategory((data) => {
+      setElectronic(data);
+    });
+  }, []);
   const [camilan, setCamilan] = useState([]);
   useEffect(() => {
     getCamilanCategory((data) => {
       setCamilan(data);
     });
   }, []);
+
+  // tag
   const [indomie, setIndomie] = useState([]);
   useEffect(() => {
     getIndomieTag((data) => {
@@ -57,8 +72,14 @@ const ProductProvider = ({ children }) => {
       setChocolate(data);
     });
   }, []);
+  const [style, setStyle] = useState([]);
+  useEffect(() => {
+    getStyleTag((data) => {
+      setStyle(data);
+    });
+  }, []);
 
-  return <ProductContext.Provider value={{ detail, products, drink, food, camilan, indomie, chocolate, sweet }}>{children}</ProductContext.Provider>;
+  return <ProductContext.Provider value={{ detail, products, drink, food, camilan, clothes, electronic, indomie, chocolate, sweet, style }}>{children}</ProductContext.Provider>;
 };
 
 export default ProductProvider;

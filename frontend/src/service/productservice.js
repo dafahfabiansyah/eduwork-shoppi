@@ -40,6 +40,26 @@ export const getCamilanCategory = (callback) => {
       console.log(err);
     });
 };
+export const getClothesCategory = (callback) => {
+  axios
+    .get('http://localhost:5000/api/product?category=clothes')
+    .then((res) => {
+      callback(res.data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+export const getElectronicCategory = (callback) => {
+  axios
+    .get('http://localhost:5000/api/product?category=electronic')
+    .then((res) => {
+      callback(res.data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
 export const getIndomieTag = (callback) => {
   axios
     .get('http://localhost:5000/api/product?tag=indomie')
@@ -63,6 +83,16 @@ export const getSweetTag = (callback) => {
 export const getChocolateTag = (callback) => {
   axios
     .get('http://localhost:5000/api/product?tag=chocolate')
+    .then((res) => {
+      callback(res.data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+export const getStyleTag = (callback) => {
+  axios
+    .get('http://localhost:5000/api/product?tag=style')
     .then((res) => {
       callback(res.data);
     })

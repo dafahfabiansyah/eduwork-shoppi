@@ -8,9 +8,12 @@ import Footer from '../components/Footer';
 import DrinkCategory from '../fragment/cardProduct/DrinkCategory';
 import FoodCategory from '../fragment/cardProduct/FoodCategory';
 import CamilanCategory from '../fragment/cardProduct/CamilanCategory';
+import ClothesCategory from '../fragment/cardProduct/ClothesCategory';
+import ElectronicCategory from '../fragment/cardProduct/ElectronicCategory';
 import IndomieTag from '../fragment/cardProduct/IndomieTag';
 import SweetTag from '../fragment/cardProduct/sweetTag';
 import ChocolateTag from '../fragment/cardProduct/chocolateTag';
+import StyleTag from '../fragment/cardProduct/styleTag';
 
 const Home = () => {
   const { isDarkMode, setIsDarkMode } = useContext(DarkMode);
@@ -56,6 +59,12 @@ const Home = () => {
               <button className={`button ${showType === 'camilan' ? 'active' : ''}hover:text-orange-500`} onClick={() => setShowType('camilan')}>
                 Snack
               </button>
+              <button className={`button ${showType === 'clothes' ? 'active' : ''}hover:text-orange-500`} onClick={() => setShowType('clothes')}>
+                Clothes
+              </button>
+              <button className={`button ${showType === 'electronic' ? 'active' : ''}hover:text-orange-500`} onClick={() => setShowType('electronic')}>
+                Electronic
+              </button>
               <button className={`button ${showDropdown ? 'active' : ''}hover:text-orange-500`} onClick={() => setShowDropdown(!showDropdown)}>
                 Tag
               </button>
@@ -63,28 +72,32 @@ const Home = () => {
 
             {showDropdown && (
               <div className=" absolute mt-2 mr-16 w-40 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-                <div className="py-1">
+                <div className="">
                   <button className={`button ${showType === 'indomie' ? 'active' : ''}hover:text-green-500 flex items-center justify-center w-full`} onClick={() => setShowType('indomie')}>
                     Indomie
                   </button>
-                  <br />
                   <button className={`button ${showType === 'chocolate' ? 'active' : ''}hover:text-orange-950 flex items-center justify-center w-full`} onClick={() => setShowType('chocolate')}>
                     Chocolate
                   </button>
-                  <br />
                   <button className={`button ${showType === 'sweet' ? 'active' : ''}hover:text-pink-400  flex items-center justify-center w-full`} onClick={() => setShowType('sweet')}>
                     Sweet
+                  </button>
+                  <button className={`button ${showType === 'style' ? 'active' : ''} hover:text-sky-900 flex items-center justify-center w-full`} onClick={() => setShowType('style')}>
+                    Style
                   </button>
                 </div>
               </div>
             )}
 
-            {(showType === 'all' && <Product search={search} className="mb-5" />) ||
+            {(showType === 'all' && <Product search={search} className="mb-2" />) ||
               (showType === 'drink' && <DrinkCategory search={search} />) ||
               (showType === 'food' && <FoodCategory search={search} />) ||
               (showType === 'camilan' && <CamilanCategory search={search} />) ||
+              (showType === 'clothes' && <ClothesCategory search={search} />) ||
+              (showType === 'electronic' && <ElectronicCategory search={search} />) ||
               (showType === 'indomie' && <IndomieTag search={search} />) ||
               (showType === 'chocolate' && <ChocolateTag search={search} />) ||
+              (showType === 'style' && <StyleTag search={search} />) ||
               (showType === 'sweet' && <SweetTag search={search} />)}
           </div>
         </div>
