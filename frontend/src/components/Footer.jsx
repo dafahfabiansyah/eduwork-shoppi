@@ -3,7 +3,7 @@ import { DarkMode } from '../contexts/DarkModeContext';
 import Icon from '../img/icon.png';
 
 const Footer = () => {
-  const { isDarkMode, setIsDarkMode } = useContext(DarkMode);
+  const { isDarkMode } = useContext(DarkMode);
   return (
     // <footer class="bg-white dark:bg-gray-900">
     <footer className={` ${isDarkMode ? 'bg-orange-50 text-black' : 'bg-slate-900 text-white'} transition`}>
@@ -11,7 +11,7 @@ const Footer = () => {
         <div class="md:flex md:justify-between">
           <div class="mb-6 md:mb-0">
             <a href="#home" class="flex items-center">
-              <img src={Icon} class="h-8 me-3" alt="FlowBite Logo" />
+              <img src={Icon} class="h-8 me-3" alt="Shoppi Logo" />
               <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-gray-500">Shoppi</span>
             </a>
           </div>

@@ -1,10 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
 
-import { IoBagHandleOutline } from 'react-icons/io5';
+import { IoBagHandleOutline, IoLogInOutline } from 'react-icons/io5';
 import { CartContext } from '../contexts/CartContext';
 import { Link } from 'react-router-dom';
 import Icon from '../img/icon.png';
-import { AiOutlineLogin } from 'react-icons/ai';
 import AuthContext from '../contexts/AuthContext';
 
 const Header = () => {
@@ -32,9 +31,9 @@ const Header = () => {
           </div>
         </Link>{' '}
         {loggedIn === false ? (
-          <Link to={'/login'}>
+          <Link to={'/login'} className="hover:bg-blue-500 hover:text-white transition duration-300  p-2 rounded-full">
             <div className="cursor-pointer grid md:grid-cols-2 ">
-              <AiOutlineLogin className="text-2xl" />
+              <IoLogInOutline className="text-2xl" />
               <p>Login</p>
             </div>
           </Link>

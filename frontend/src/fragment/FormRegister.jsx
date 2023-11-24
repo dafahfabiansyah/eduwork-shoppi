@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useSnackbar } from 'notistack';
+import { FaEyeSlash } from 'react-icons/fa';
+import { IoEyeSharp } from 'react-icons/io5';
 
 const FormRegister = () => {
   const [name, setName] = useState('');
@@ -58,7 +60,7 @@ const FormRegister = () => {
         />
         {/* Password visibility toggle button */}
         <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-0 py-2 px-3 px-2 text-sm">
-          {showPassword ? 'Hide' : 'Show'}
+          {showPassword ? <FaEyeSlash /> : <IoEyeSharp />}
         </button>
       </div>
 

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const Order = require('../model/orderModel'); // Pastikan path ke model Order sudah sesuai
-const OrderItem = require('../model/orderItemModel'); // Pastikan path ke model OrderItem sudah sesuai
+const Order = require('../model/orderModel');
+const OrderItem = require('../model/orderItemModel');
 
 // Endpoint untuk membuat order
 router.post('/create-order', async (req, res) => {

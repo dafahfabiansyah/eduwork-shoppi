@@ -35,7 +35,7 @@ const ProductDetails = () => {
     <>
       <Header />
 
-      <section className="pt-32 pb-12 lg:py-32 h-[87.2vh] flex items-center">
+      <section className="pt-32 pb-12 lg:py-32 h-[87.2vh] flex items-center mt-11">
         <div className="container mx-auto">
           <div className="flex flex-col lg:flex-row items-center">
             <div className="flex flex-1 justify-center items-center mb-8 lg:mb-0 ">
@@ -43,9 +43,9 @@ const ProductDetails = () => {
             </div>
             <div className="flex-1 text-center lg:text-left">
               <h1 className="text-[26px] font-medium mb-2 max-w-[450px] mx-auto lg:mx-0">{name}</h1>
-              <div className="text-red-500 font-medium mb-6">Rp.{price} </div>
+              <div className="text-red-500 font-medium mb-6">Rp.{price}</div>
               <p className="mb-8"> {description} </p>
-              <button onClick={() => handleAddToCart(product)} className="bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded rounded-lg   transition duration-300  py-4 px-8 text-white">
+              <button onClick={() => handleAddToCart(product)} className="bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded rounded-lg transition duration-300  py-4 px-8 text-white">
                 Add To Cart
               </button>
             </div>

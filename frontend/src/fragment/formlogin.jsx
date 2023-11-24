@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import AuthContext from '../contexts/AuthContext';
 import axios from 'axios';
 import { useSnackbar } from 'notistack';
+import { FaEyeSlash } from 'react-icons/fa';
+import { IoEyeSharp } from 'react-icons/io5';
 
 const FormLogin = () => {
   const [email, setEmail] = useState('');
@@ -68,7 +70,7 @@ const FormLogin = () => {
         />
         {/* Password visibility toggle button */}
         <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-0 py-2 px-3 px-2 text-sm">
-          {showPassword ? 'Hide' : 'Show'}
+          {showPassword ? <FaEyeSlash /> : <IoEyeSharp />}
         </button>
       </div>
       <button className="bg-blue-600 w-full text-white h-12 rounded-md" type="submit">

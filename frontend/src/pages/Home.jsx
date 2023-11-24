@@ -34,7 +34,7 @@ const Home = () => {
       <section className={`py-16 ${isDarkMode && 'bg-slate-900 text-white transition'}`}>
         <div className="container mx-auto">
           <div className="relative">
-            <button className="absolute right-2 top-2 bg-blue-600 p-2 hover:bg-green-500 text-white rounded mt-20 mr-2" onClick={() => setIsDarkMode(!isDarkMode)}>
+            <button className="absolute right-2 top-2 bg-blue-600 p-2 hover:bg-yellow-300 text-white rounded mt-20 mr-2" onClick={() => setIsDarkMode(!isDarkMode)}>
               {isDarkMode ? <FaRegSun /> : <FaRegMoon />}
             </button>
 
@@ -71,8 +71,8 @@ const Home = () => {
             </div>
 
             {showDropdown && (
-              <div className=" absolute mt-2 mr-16 w-40 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-                <div className="">
+              <div className={`absolute mt-2 mr-16 w-40 rounded-2xl shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none`}>
+                <div className={`${isDarkMode && 'bg-slate-700 text-white transition rounded-2xl'}`}>
                   <button className={`button ${showType === 'indomie' ? 'active' : ''}hover:text-green-500 flex items-center justify-center w-full`} onClick={() => setShowType('indomie')}>
                     Indomie
                   </button>

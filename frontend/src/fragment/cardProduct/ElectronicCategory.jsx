@@ -39,7 +39,7 @@ const ElectronicCategory = ({ search }) => {
                 </div>
               </div>
               <div className="text-center text-xl text-semibold">{product.name}</div>
-              <div className="text-center text-xl text-semibold">{product.price}</div>
+              <div className="text-center text-xl text-semibold">Rp.{product.price}</div>
               <button className="bg-blue-500 py-2 mx-auto text-white rounded rounded-lg flex mx-auto w-[80%] mt-1 mb-1 justify-center px-1 items-center hover:bg-blue-800 transition duration-300" onClick={() => handleAddToCart(product)}>
                 add to cart
               </button>
