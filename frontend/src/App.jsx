@@ -3,6 +3,11 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ProductDetails from './pages/ProductDetails';
 import Home from './pages/Home';
 
+import AddProduct from './pages/admin/addProduct';
+import GetProduct from './pages/admin/getProduct';
+import EditProduct from './pages/admin/editProduct';
+import DeleteProduct from './pages/admin/deleteProduct';
+
 import LoginPage from './pages/login';
 import RegisterPage from './pages/register';
 import NotFound from './pages/NotFound';
@@ -22,7 +27,12 @@ const App = () => {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="*" element={<NotFound />} />
+          {/* <Route path="*" element={<NotFound />} /> */}
+
+          <Route path="/admin" element={<GetProduct />} />
+          <Route path="/admin/add" element={<AddProduct />} />
+          <Route path="/admin/edit/:_id" element={<EditProduct />} />
+          <Route path="/admin/delete/:_id" element={<DeleteProduct />} />
 
           <Route path="/product/:_id" element={<ProductDetails />} />
 

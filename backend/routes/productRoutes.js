@@ -93,6 +93,9 @@ router.post('/', upload.single('image_url'), async (req, res) => {
     }
 
     const image_url = req.file.path;
+    if (!image_url) {
+      return res.status(400).json({ error: 'File upload failed' });
+    }
 
     const product = new Product({
       ...payload,
@@ -100,9 +103,10 @@ router.post('/', upload.single('image_url'), async (req, res) => {
     });
 
     await product.save();
-    res.send(product);
+    res.status(201).json(product);
   } catch (error) {
-    res.status(400).json(error.message);
+    console.error(error);
+    res.status(400).json({ error: error.message });
   }
 });
 
