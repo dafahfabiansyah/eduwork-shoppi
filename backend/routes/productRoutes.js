@@ -113,10 +113,11 @@ router.post('/', upload.single('image_url'), async (req, res) => {
 // edit
 router.put('/:id', async (req, res) => {
   try {
-    const payload = req.body;
+    let payload = req.body;
     if (!payload.name || !payload.price || !payload.description) {
       return res.status(400).send('All fields are required');
     }
+
     if (payload.category) {
       let category = await Category.findOne({ name: { $regex: payload.category, $options: 'i' } });
       if (category) {
@@ -125,15 +126,21 @@ router.put('/:id', async (req, res) => {
         delete payload.category;
       }
     }
-    const product = await Product.findById(req.params.id);
 
-    product.name = payload.name;
-    product.price = payload.price;
-    product.description = payload.description;
-    product.category = payload.category;
+    const product = await Product.findByIdAndUpdate(
+      req.params.id,
+      {
+        $set: {
+          name: req.body.name,
+          price: req.body.price,
+          description: req.body.description,
+          category: req.body.category,
+        },
+      },
+      { new: true } // This ensures the updated document is returned
+    );
 
-    await product.save();
-    res.send(product).status(201).json('Product updated successfully');
+    res.status(201).json(product);
   } catch (error) {
     res.status(400).json(error.message);
   }

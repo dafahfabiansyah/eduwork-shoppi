@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const AddProduct = () => {
   const [file, setFile] = useState(null);
@@ -49,8 +50,11 @@ const AddProduct = () => {
   };
 
   return (
-    <section className="shadow shadow-2xl h-screen flex items-center">
-      <div className="w-[40%] mx-auto border rounded-lg">
+    <section className="shadow shadow-2xl  min-h-screen flex">
+      <Link to="/admin" className="text-blue-500 mb-3 block">
+        Back to Admin
+      </Link>
+      <div className="w-[40%] mx-auto border rounded-lg items-center">
         <h1 className="text-center text-2xl font-bold mt-5 text-blue-500 mb-5">Add Product Form</h1>
         <form className="w-[80%] mx-auto mt-5 mb-8">
           <label className="block">Name</label>

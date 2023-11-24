@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 const EditProduct = () => {
-  //   const productId = match.params.id;
   const { _id } = useParams();
   const [product, setProduct] = useState({
     name: '',
@@ -15,7 +14,6 @@ const EditProduct = () => {
   const [file, setFile] = useState(null);
 
   useEffect(() => {
-    // Fetch the product data for the specified ID when the component mounts
     const fetchProduct = async () => {
       try {
         const response = await fetch(`http://localhost:5000/api/product/${_id}`);
@@ -47,20 +45,20 @@ const EditProduct = () => {
 
   const handleSubmit = async () => {
     try {
-      const form = new FormData();
-      form.append('name', product.name);
-      form.append('price', product.price);
-      form.append('description', product.description);
-      form.append('category', product.category);
-      form.append('tag', product.tag);
-      if (file) {
-        form.append('image_url', file);
-      }
+      const params = new URLSearchParams();
+      params.append('name', product.name);
+      params.append('price', product.price);
+      params.append('description', product.description);
+      params.append('category', product.category);
+      params.append('tag', product.tag);
 
       const response = await fetch(`http://localhost:5000/api/product/${_id}`, {
         method: 'PUT',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
         credentials: 'same-origin',
-        body: form,
+        body: params.toString(),
       });
 
       if (response.ok) {
@@ -77,7 +75,10 @@ const EditProduct = () => {
   return (
     <div>
       <h1 className="text-center text-2xl font-bold mt-5 text-blue-500 mb-5">Edit Product</h1>
-      <form className="w-[80%] mx-auto mt-5 mb-8">
+      <Link to="/admin" className="text-blue-500 mb-3 block">
+        Back to Admin
+      </Link>
+      <form className="w-full sm:w-[80%] md:w-[60%] lg:w-[50%] mx-auto mt-5 mb-8">
         <label className="block">Name</label>
         <input type="text" placeholder="Enter name" name="name" className="text-sm border rounded w-full py-2 px-3 text-slate-800 placeholder-opacity-50" value={product.name} onChange={handleInputChange} />
         <label className="block mt-3">Price</label>

@@ -34,11 +34,12 @@ const GetProduct = () => {
         <thead>
           <tr>
             <th>Image</th>
+            <th>ID</th>
             <th>Name</th>
             <th>Price</th>
             <th>Description</th>
             <th>Category</th>
-            {/* <th>Tag</th> */}
+            <th>Tag</th>
             <th>Action</th>
             {/* Add more headers as needed */}
           </tr>
@@ -53,16 +54,19 @@ const GetProduct = () => {
                   style={{ width: '50px', height: '50px', objectFit: 'cover' }}
                 />
               </td>
-              <td>{product.name}</td>
-              <td>{product.price}</td>
-              <td>{product.description}</td>
-              <td>{product.category.name}</td>
-              {/* <td>
+              <td className="px-2">{product._id}</td>
+              <td className="px-2">{product.name}</td>
+              <td className="px-2">{product.price}</td>
+              <td className="px-2">{product.description}</td>
+              {/* <td>{product.category.name}</td> */}
+              <td className="px-3">{product.category && product.category.name ? product.category.name : 'none'}</td>
+              <td className="px-3">{product.tag && product.tag.name ? product.tag.name : 'none'}</td>
+              <td>
                 {' '}
                 <Link to={`/admin/edit/${product._id}`} className="text-blue-500">
                   Edit
                 </Link>
-              </td> */}
+              </td>
               <td>
                 {' '}
                 <Link to={`/admin/delete/${product._id}`} className="text-red-500">

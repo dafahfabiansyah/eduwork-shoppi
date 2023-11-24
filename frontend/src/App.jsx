@@ -27,25 +27,32 @@ const App = () => {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* <Route path="*" element={<NotFound />} /> */}
+          <Route path="*" element={<NotFound />} />
 
+          {/* admin */}
           <Route path="/admin" element={<GetProduct />} />
           <Route path="/admin/add" element={<AddProduct />} />
           <Route path="/admin/edit/:_id" element={<EditProduct />} />
           <Route path="/admin/delete/:_id" element={<DeleteProduct />} />
 
-          <Route path="/product/:_id" element={<ProductDetails />} />
-
+          {/* authentication */}
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
 
+          {/* address */}
           <Route path="/address" element={<AddressPage />} />
           <Route path="/address/edit/:_id" element={<EditAdress />} />
           <Route path="/address/delete/:_id" element={<DeleteAddress />} />
+          {/* payment */}
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/invoice" element={<InvoicePage />} />
-          <Route path="/profile" element={<ProfilePage />} />
+
+          {/* product */}
           <Route path="/cart" element={<CartPage />} />
+          <Route path="/product/:_id" element={<ProductDetails />} />
+
+          {/* profile */}
+          <Route path="/profile" element={<ProfilePage />} />
         </Routes>
       </Router>
     </div>
