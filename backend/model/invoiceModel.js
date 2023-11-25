@@ -10,9 +10,9 @@ const invoiceSchema = new mongoose.Schema(
       type: Number,
       required: [true, 'delivery fee harus diisi'],
     },
-    adress: {
+    address: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Adress', 
+      ref: 'Address',
     },
     total: {
       type: Number,

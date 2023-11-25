@@ -26,6 +26,14 @@ const productSchema = new mongoose.Schema({
   image_url: {
     type: String,
   },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+  updatedAt: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 const Product = mongoose.model('Product', productSchema);

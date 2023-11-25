@@ -19,7 +19,7 @@ function Logoutbtn() {
       localStorage.removeItem('token');
       localStorage.removeItem('userId');
       localStorage.removeItem('name');
-      alert('See you :)');
+      // alert('See you :)');
     } catch (error) {
       console.error(error);
     }

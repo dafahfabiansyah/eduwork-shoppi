@@ -27,10 +27,10 @@ const GetProduct = () => {
     <div>
       <h1 className="text-center text-2xl font-bold mt-5 text-blue-500 mb-5">Admin Products</h1>
       <Link to="/admin/add" className="bg-green-500 text-white py-2 px-4 rounded-md">
-        Create Product
+        Add Product
       </Link>
 
-      <table className="w-[80%] mx-auto mt-5">
+      <table className="w-[80%] mx-auto mt-5 ">
         <thead>
           <tr>
             <th>Image</th>
@@ -40,27 +40,31 @@ const GetProduct = () => {
             <th>Description</th>
             <th>Category</th>
             <th>Tag</th>
+            <th>Created at</th>
+            <th>Last update</th>
             <th>Action</th>
             {/* Add more headers as needed */}
           </tr>
         </thead>
-        <tbody>
+        <tbody className="border border-blue-300">
           {products.map((product) => (
             <tr key={product._id}>
-              <td>
+              <td className="border border-blue-300">
                 <img
                   src={`http://localhost:5000/${product.image_url}`} // Assuming the server provides the correct image URL
                   alt={product.name}
                   style={{ width: '50px', height: '50px', objectFit: 'cover' }}
                 />
               </td>
-              <td className="px-2">{product._id}</td>
-              <td className="px-2">{product.name}</td>
-              <td className="px-2">{product.price}</td>
-              <td className="px-2">{product.description}</td>
+              <td className="px-2 border border-blue-300">{product._id}</td>
+              <td className="px-2 border border-blue-300">{product.name}</td>
+              <td className="px-2 border border-blue-300">{product.price}</td>
+              <td className="px-2 border border-blue-300">{product.description}</td>
               {/* <td>{product.category.name}</td> */}
-              <td className="px-3">{product.category && product.category.name ? product.category.name : 'none'}</td>
-              <td className="px-3">{product.tag && product.tag.name ? product.tag.name : 'none'}</td>
+              <td className="px-3 border border-blue-300">{product.category && product.category.name ? product.category.name : 'none'}</td>
+              <td className="px-3 border border-blue-300">{product.tag && product.tag.name ? product.tag.name : 'none'}</td>
+              <td className="px-3 border border-blue-300">{product.createdAt}</td>
+              <td className="px-3 border border-blue-300">{product.updatedAt}</td>
               <td>
                 {' '}
                 <Link to={`/admin/edit/${product._id}`} className="text-blue-500">

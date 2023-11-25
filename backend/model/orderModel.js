@@ -12,7 +12,7 @@ const orderSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
-    adress: {
+    address: {
       name: {
         type: String,
         required: true,
@@ -69,7 +69,7 @@ orderSchema.post('save', async function () {
     sub_total: sub_total,
     delivery_fee: parseInt(this.delivery_fee),
     total: parseInt(sub_total + this.delivery_fee),
-    adress: this.adress,
+    address: this.address,
   });
   await newInvoice.save();
 });

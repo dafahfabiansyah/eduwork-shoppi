@@ -65,7 +65,7 @@ const AddProduct = () => {
           <textarea placeholder="Enter description" name="description" className="text-sm border rounded w-full py-2 px-3 text-slate-800 h-[100px] placeholder-opacity-50" value={formData.description} onChange={handleInputChange} />
           <label className="block mt-3">Category</label>
           <input type="text" placeholder="Enter category" name="category" className="text-sm border rounded w-full py-2 px-3 text-slate-800 placeholder-opacity-50" value={formData.category} onChange={handleInputChange} />
-          <label className="block mt-3">Category</label>
+          <label className="block mt-3">Tag</label>
           <input type="text" placeholder="Enter tag" name="tag" className="text-sm border rounded w-full py-2 px-3 text-slate-800 placeholder-opacity-50" value={formData.tag} onChange={handleInputChange} />
           <label className="block mt-3">Image</label>
           <input type="file" onChange={handleFileChange} />

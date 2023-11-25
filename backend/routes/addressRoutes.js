@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const Adress = require('../model/adressModel');
+const Address = require('../model/addressModel');
 
-async function getAdress(req, res, next) {
+async function getAddress(req, res, next) {
   try {
-    const address = await Adress.findById(req.params.id);
+    const address = await Address.findById(req.params.id);
     if (address == null) {
       return res.status(404).json({ message: 'Alamat tidak ditemukan' });
     }
@@ -20,7 +20,7 @@ async function getAdress(req, res, next) {
 // Mendapatkan semua alamat
 router.get('/', async (req, res) => {
   try {
-    const addresses = await Adress.find().populate('user');
+    const addresses = await Address.find().populate('user');
     res.json(addresses);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -31,7 +31,7 @@ router.get('/', async (req, res) => {
 router.get('/user/:userId', async (req, res) => {
   try {
     const userId = req.params.userId;
-    const userAddresses = await Adress.find({ user: userId }).populate('user');
+    const userAddresses = await Address.find({ user: userId }).populate('user');
     res.status(200).json(userAddresses);
   } catch (error) {
     res.status(500).json({ error: 'Internal Server Error' });
@@ -40,7 +40,7 @@ router.get('/user/:userId', async (req, res) => {
 
 // Menambah alamat baru
 router.post('/', async (req, res) => {
-  const address = new Adress({
+  const address = new Address({
     name: req.body.name,
     kelurahan: req.body.kelurahan,
     kecamatan: req.body.kecamatan,
@@ -59,7 +59,7 @@ router.post('/', async (req, res) => {
 });
 
 // Mendapatkan detail alamat berdasarkan ID
-router.get('/:id', getAdress, (req, res) => {
+router.get('/:id', getAddress, (req, res) => {
   res.json(res.locals.address);
 });
 
@@ -67,7 +67,7 @@ router.get('/:id', getAdress, (req, res) => {
 router.delete('/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const address = await Adress.findByIdAndDelete(id);
+    const address = await Address.findByIdAndDelete(id);
     if (!address) {
       return res.status(404).json({ message: 'Alamat tidak ditemukan' });
     }
@@ -82,7 +82,7 @@ router.put('/:id', async (req, res) => {
   try {
     const payload = req.body;
     const { id } = req.params;
-    const address = await Adress.findByIdAndUpdate(id, payload, { new: true });
+    const address = await Address.findByIdAndUpdate(id, payload, { new: true });
     if (!address) {
       return res.status(404).json({ message: 'Alamat tidak ditemukan' });
     }

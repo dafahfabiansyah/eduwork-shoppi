@@ -51,7 +51,7 @@ const FormLogin = () => {
     <form onSubmit={handleLogin}>
       <label htmlFor="email">Email</label>
       <input
-        className="text-sm border border-blue-600 rounded mb-5 w-full py-2 px-3 text-slate-700 placeholder: text-black"
+        className="text-sm border border-orange-500 rounded mb-5 w-full py-2 px-3 text-slate-700 placeholder: text-black"
         label="Email"
         type="email"
         placeholder="example@gmail.com"
@@ -61,7 +61,7 @@ const FormLogin = () => {
       <label htmlFor="password">Password</label>
       <div className="relative">
         <input
-          className="text-sm border border-blue-600 rounded mb-5 w-full py-2 px-3 text-slate-700 placeholder: text-black"
+          className="text-sm border border-orange-500 rounded mb-5 w-full py-2 px-3 text-slate-700 placeholder: text-black"
           label="Password"
           type={showPassword ? 'text' : 'password'}
           placeholder="*********"
@@ -73,7 +73,7 @@ const FormLogin = () => {
           {showPassword ? <FaEyeSlash /> : <IoEyeSharp />}
         </button>
       </div>
-      <button className="bg-blue-600 w-full text-white h-12 rounded-md" type="submit">
+      <button className="bg-orange-500 w-full text-white h-12 rounded-md" type="submit">
         Login
       </button>
     </form>
