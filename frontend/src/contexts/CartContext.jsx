@@ -46,28 +46,37 @@ const CartProvider = ({ children }) => {
       setCart(newCart);
       saveCartToLocalStorage(newCart);
     } else {
-      const userId = localStorage.getItem('userId');
-      const newItem = { ...product, amount: 1, userId };
+      const existingCartItem = cart.find((item) => item.name === product.name);
 
-      try {
-        const response = await axios.post('http://localhost:5000/api/cart', {
-          name: newItem.name,
-          amount: newItem.amount,
-          price: newItem.price,
-          description: newItem.description,
-          user: newItem.userId,
-          image_url: newItem.image_url,
-          product: newItem._id,
-        });
+      if (existingCartItem) {
+        const newCart = cart.map((item) => (item.name === product.name ? { ...item, amount: item.amount + 1 } : item));
 
-        if (response.status === 201) {
-          setCart((prevCart) => [...prevCart, newItem]);
-          saveCartToLocalStorage([...cart, newItem]);
-        } else {
-          console.error('Error adding to cart:', response.data);
+        setCart(newCart);
+        saveCartToLocalStorage(newCart);
+      } else {
+        const userId = localStorage.getItem('userId');
+        const newItem = { ...product, amount: 1, userId };
+
+        try {
+          const response = await axios.post('http://localhost:5000/api/cart', {
+            name: newItem.name,
+            amount: newItem.amount,
+            price: newItem.price,
+            description: newItem.description,
+            user: newItem.userId,
+            image_url: newItem.image_url,
+            product: newItem._id,
+          });
+
+          if (response.status === 201) {
+            setCart((prevCart) => [...prevCart, newItem]);
+            saveCartToLocalStorage([...cart, newItem]);
+          } else {
+            console.error('Error adding to cart:', response.data);
+          }
+        } catch (error) {
+          console.error('Error adding to cart:', error);
         }
-      } catch (error) {
-        console.error('Error adding to cart:', error);
       }
     }
   };
