@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const getProducts = (callback) => {
   axios
-    .get('http://localhost:5000/api/product')
+    .get(`${import.meta.env.VITE_API_URL}/api/product`)
     .then((res) => {
       callback(res.data);
     })
@@ -12,7 +12,7 @@ export const getProducts = (callback) => {
 };
 export const getDrinkCategory = (callback) => {
   axios
-    .get('http://localhost:5000/api/product?category=drink')
+    .get(`${import.meta.env.VITE_API_URL}/api/product/?category=drink`)
     .then((res) => {
       callback(res.data);
     })
@@ -22,7 +22,7 @@ export const getDrinkCategory = (callback) => {
 };
 export const getFoodCategory = (callback) => {
   axios
-    .get('http://localhost:5000/api/product?category=food')
+    .get(`${import.meta.env.VITE_API_URL}/api/product/?category=food`)
     .then((res) => {
       callback(res.data);
     })
@@ -32,7 +32,7 @@ export const getFoodCategory = (callback) => {
 };
 export const getCamilanCategory = (callback) => {
   axios
-    .get('http://localhost:5000/api/product?category=snack')
+    .get(`${import.meta.env.VITE_API_URL}/api/product/?category=snack`)
     .then((res) => {
       callback(res.data);
     })
@@ -42,7 +42,7 @@ export const getCamilanCategory = (callback) => {
 };
 export const getClothesCategory = (callback) => {
   axios
-    .get('http://localhost:5000/api/product?category=clothes')
+    .get(`${import.meta.env.VITE_API_URL}/api/product/?category=clothes`)
     .then((res) => {
       callback(res.data);
     })
@@ -52,7 +52,7 @@ export const getClothesCategory = (callback) => {
 };
 export const getElectronicCategory = (callback) => {
   axios
-    .get('http://localhost:5000/api/product?category=electronic')
+    .get(`${import.meta.env.VITE_API_URL}/api/product/?category=electronic`)
     .then((res) => {
       callback(res.data);
     })
@@ -62,7 +62,7 @@ export const getElectronicCategory = (callback) => {
 };
 export const getIndomieTag = (callback) => {
   axios
-    .get('http://localhost:5000/api/product?tag=indomie')
+    .get(`${import.meta.env.VITE_API_URL}/api/product?tag=indomie`)
     .then((res) => {
       callback(res.data);
     })
@@ -72,7 +72,7 @@ export const getIndomieTag = (callback) => {
 };
 export const getSweetTag = (callback) => {
   axios
-    .get('http://localhost:5000/api/product?tag=sweet')
+    .get(`${import.meta.env.VITE_API_URL}/api/product?tag=sweet`)
     .then((res) => {
       callback(res.data);
     })
@@ -82,7 +82,7 @@ export const getSweetTag = (callback) => {
 };
 export const getChocolateTag = (callback) => {
   axios
-    .get('http://localhost:5000/api/product?tag=chocolate')
+    .get(`${import.meta.env.VITE_API_URL}/api/product?tag=chocolate`)
     .then((res) => {
       callback(res.data);
     })
@@ -92,7 +92,7 @@ export const getChocolateTag = (callback) => {
 };
 export const getStyleTag = (callback) => {
   axios
-    .get('http://localhost:5000/api/product?tag=style')
+    .get(`${import.meta.env.VITE_API_URL}/api/product?tag=style`)
     .then((res) => {
       callback(res.data);
     })
@@ -106,7 +106,7 @@ export const getStyleTag = (callback) => {
 // untuk memanggil react router DOM
 export const getDetailProduct = (_id, callback) => {
   axios
-    .get(`http://localhost:5000/api/product/${_id}`)
+    .get(`${import.meta.env.VITE_API_URL}/api/product/${_id}`)
     .then((res) => {
       console.log('Detail Product:', data);
       callback(res.data);

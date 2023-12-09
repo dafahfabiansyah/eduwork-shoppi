@@ -36,13 +36,18 @@ const InvoicePage = () => {
             <AiOutlineCheckCircle className="text-3xl text-green-500 mx-auto" />
             <div className="mb-5">
               <span className="underline">Alamat : </span>
-
-              <p>Atas Nama : {address[0].name}</p>
-              <p>Kelurahan : {address[0].kelurahan}</p>
-              <p>Kecamatan : {address[0].kecamatan}</p>
-              <p>Kabupaten : {address[0].kota}</p>
-              <p>Provinsi : {address[0].provinsi}</p>
-              <p>Detail : {address[0].detail}</p>
+              {address.length > 0 ? (
+                <>
+                  <p>Atas Nama : {address[0].name}</p>
+                  <p>Kelurahan : {address[0].kelurahan}</p>
+                  <p>Kecamatan : {address[0].kecamatan}</p>
+                  <p>Kabupaten : {address[0].kota}</p>
+                  <p>Provinsi : {address[0].provinsi}</p>
+                  <p>Detail : {address[0].detail}</p>
+                </>
+              ) : (
+                <p>maaf belum membuat Alamat</p>
+              )}
 
               <span>
                 Payment to: <CopyToClipboard textToCopy={rekeningInfo} cl />
